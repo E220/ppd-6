@@ -1,3 +1,7 @@
+import algorithm.HamiltonianCycle;
+import model.Graph;
+import strategy.WithSingleThread;
+
 public class Main {
     public static void main(String[] args) {
         final Graph withoutCycle = new Graph(7);
@@ -19,8 +23,8 @@ public class Main {
         withoutCycle.addEdge(5, 3);
         withoutCycle.addEdge(6, 4);
 
-        System.out.println(HamiltonianCycle.find(withoutCycle));
+        System.out.println(HamiltonianCycle.find(withoutCycle, new WithSingleThread()));
 //        for (int i = 0; i < 7; i++)
-//            System.out.println(HamiltonianCycle.find(withoutCycle, i));
+//            System.out.println(algorithm.HamiltonianCycle.find(withoutCycle, new WithSingleThread()));
     }
 }
