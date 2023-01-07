@@ -25,6 +25,6 @@ public class Main {
 
         System.out.println(HamiltonianCycle.find(withoutCycle, new WithSingleThread()));
 //        for (int i = 0; i < 7; i++)
-//            System.out.println(algorithm.HamiltonianCycle.find(withoutCycle, new WithSingleThread()));
+//            System.out.println(algorithm.HamiltonianCycle.find(withoutCycle, i, new WithSingleThread()));
     }
 }
