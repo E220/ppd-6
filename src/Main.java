@@ -1,5 +1,7 @@
 import algorithm.HamiltonianCycle;
 import model.Graph;
+import program.Program;
+import program.Timer;
 import strategy.WithSingleThread;
 import strategy.WithThreadPool;
 
@@ -14,7 +16,7 @@ public class Main {
         graph.addEdge(2, 1);
         graph.addEdge(2, 5);
         graph.addEdge(2, 6);
-        graph.addEdge(3, 0);
+//        graph.addEdge(3, 0);
         graph.addEdge(3, 6);
         graph.addEdge(4, 3);
         graph.addEdge(4, 5);
@@ -24,13 +26,10 @@ public class Main {
         graph.addEdge(5, 3);
         graph.addEdge(6, 4);
 
-//        System.out.println(HamiltonianCycle.find(graph, new WithSingleThread()));
-        for (int i = 0; i < 7; i++)
-            System.out.println(HamiltonianCycle.find(graph, i, new WithSingleThread()));
+        System.out.println("Single thread:");
+        new Program(new WithSingleThread(), new Timer(), 100).run(graph);
 
-//        System.out.println(HamiltonianCycle.find(graph, new WithThreadPool()));
-        for (int i = 0; i < 7; i++) {
-            System.out.println(HamiltonianCycle.find(graph, i, new WithThreadPool()));
-        }
+        System.out.println("Thread pool:");
+        new Program(new WithThreadPool(), new Timer(), 100).run(graph);
     }
 }
