@@ -16,7 +16,7 @@ public class Main {
         graph.addEdge(2, 1);
         graph.addEdge(2, 5);
         graph.addEdge(2, 6);
-//        graph.addEdge(3, 0);
+        graph.addEdge(3, 0); // without this, there is no cycle
         graph.addEdge(3, 6);
         graph.addEdge(4, 3);
         graph.addEdge(4, 5);
@@ -25,6 +25,9 @@ public class Main {
         graph.addEdge(5, 4);
         graph.addEdge(5, 3);
         graph.addEdge(6, 4);
+
+        System.out.println(HamiltonianCycle.find(graph, 0, new WithSingleThread()));
+        System.out.println(HamiltonianCycle.find(graph, 0, new WithThreadPool()));
 
         System.out.println("Single thread:");
         new Program(new WithSingleThread(), new Timer(), 100).run(graph);
